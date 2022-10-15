@@ -8,6 +8,7 @@ import Homescreen from './screens/Homescreen';
 import Restaurantscreen from './screens/Restaurantscreen';
 import { Provider } from 'react-redux';
 import { store } from './Redux/store';
+import Basketscreen from './screens/Basketscreen';
 
 // function HomeScreen() {
 //   return (
@@ -26,6 +27,9 @@ function App() {
         <Stack.Navigator>
           <Stack.Screen name="Home" component={Homescreen} />
           <Stack.Screen name="Restaurant" component={Restaurantscreen} />
+          <Stack.Screen name="BasketScreen" component={Basketscreen} options={{
+            presentation: "modal", headerShown: false
+          }} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

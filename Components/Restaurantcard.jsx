@@ -1,5 +1,4 @@
 import { useNavigation } from '@react-navigation/native'
-import React from 'react'
 import { View, Text, TouchableOpacity, Image } from 'react-native'
 import { MapIcon, MapPinIcon, StarIcon } from 'react-native-heroicons/solid'
 import { urlFor } from '../sanity'

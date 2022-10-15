@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { View, Text, ScrollView } from 'react-native'
 import { ArrowRightIcon } from 'react-native-heroicons/solid'
 import sanityClient from '../sanity'

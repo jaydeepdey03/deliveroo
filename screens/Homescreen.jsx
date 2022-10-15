@@ -1,8 +1,8 @@
 import { useNavigation } from '@react-navigation/native'
 import { useEffect, useLayoutEffect, useState } from 'react'
-import { View, Text, Image, TextInput, ScrollView } from 'react-native'
+import { View, Text, Image, TextInput, ScrollView, TouchableOpacity } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { AdjustmentsHorizontalIcon, ChevronDownIcon, UserIcon } from "react-native-heroicons/solid";
+import { AdjustmentsHorizontalIcon, ChevronDownIcon, ShoppingCartIcon, UserIcon } from "react-native-heroicons/solid";
 import { Svg, Path } from 'react-native-svg';
 import Categories from '../Components/Categories';
 import Featuredrow from '../Components/Featuredrow';
@@ -12,7 +12,7 @@ const Homescreen = () => {
 
     const navigation = useNavigation()
     const [featuredCategory, setFeaturedCategory] = useState([])
-
+    
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -50,7 +50,9 @@ const Homescreen = () => {
                             <ChevronDownIcon size={20} color="#00CCBB" />
                         </Text>
                     </View>
-                    <UserIcon size={35} color="#00CCBB" />
+                    <TouchableOpacity className="" onPress={()=>navigation.navigate('BasketScreen')}>
+                        <ShoppingCartIcon size={35} color="#00CCBB" />
+                    </TouchableOpacity>
                 </View>
                 {/* Search */}
                 <View className="flex flex-row space-x-2 pb-2 items-center w-screen px-4">

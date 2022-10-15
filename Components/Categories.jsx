@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { View, Text, ScrollView, Image } from 'react-native'
 import Categorycard from './Categorycard'
 import sanityClient from '../sanity'
