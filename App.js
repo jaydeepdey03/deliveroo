@@ -9,6 +9,8 @@ import Restaurantscreen from './screens/Restaurantscreen';
 import { Provider } from 'react-redux';
 import { store } from './Redux/store';
 import Basketscreen from './screens/Basketscreen';
+import Loadingscreen from './screens/Loadingscreen';
+import Deliveryscreen from './screens/Deliveryscreen';
 
 // function HomeScreen() {
 //   return (
@@ -30,6 +32,8 @@ function App() {
           <Stack.Screen name="BasketScreen" component={Basketscreen} options={{
             presentation: "modal", headerShown: false
           }} />
+          <Stack.Screen name="LoadingScreen" component={Loadingscreen} options={{presentation: 'fullScreenModal', headerShown: false}} />
+          <Stack.Screen name="Delivery" component={Deliveryscreen} options={{presentation: 'fullScreenModal', headerShown: false}} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
