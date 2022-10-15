@@ -46,7 +46,7 @@ const Featuredrow = ({ id, title, description }) => {
                             rating={item.rating}
                             genre={item.type?.name}
                             address={item.address}
-                            short_description={item.short_description}
+                            short_description={item.shortDescription}
                             dishes={item.dishes}
                             long={item.long}
                             lat={item.lat}
