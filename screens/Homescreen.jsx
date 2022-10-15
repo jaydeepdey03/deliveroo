@@ -1,21 +1,41 @@
 import { useNavigation } from '@react-navigation/native'
-import { useLayoutEffect } from 'react'
+import { useEffect, useLayoutEffect, useState } from 'react'
 import { View, Text, Image, TextInput, ScrollView } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { AdjustmentsHorizontalIcon, ChevronDownIcon, UserIcon } from "react-native-heroicons/solid";
 import { Svg, Path } from 'react-native-svg';
 import Categories from '../Components/Categories';
 import Featuredrow from '../Components/Featuredrow';
+import sanityClient from '../sanity';
 
 const Homescreen = () => {
 
     const navigation = useNavigation()
+    const [featuredCategory, setFeaturedCategory] = useState([])
+
 
     useLayoutEffect(() => {
         navigation.setOptions({
             headerShown: false,
         })
     }, [])
+
+    useEffect(() => {
+        sanityClient.fetch(`
+        *[_type == "featured"]{
+            ...,
+            restaurant[] -> {
+              ...,
+              dishes[] ->
+            }
+          }`).then(data => {
+            setFeaturedCategory(data)
+            // console.log(data)
+        }).catch(err => {
+            console.log(err)
+        })
+    }, [])
+
 
     return (
         <>
@@ -46,12 +66,13 @@ const Homescreen = () => {
             </SafeAreaView>
             {/* Scroll View */}
             <ScrollView>
-            {/* Categories */}
-            <Categories />
-            {/* Featured Rows */}
-            <Featuredrow title="Featured" description="Paid placements from our partner" featuredCategory="featured" />
-            <Featuredrow title="Tasty Discount" description="Everyone's been enjoying juicy discount" featuredCategory="discounts" />
-            <Featuredrow title="Offers near you" description="Why not support local restaurants tonight" featuredCategory="offers" />
+                {/* Categories */}
+                <Categories />
+                {/* Featured Rows */}
+
+                {featuredCategory.map((item, index) => {
+                    return <Featuredrow key={index} id={item._id} title={item.title} description={item.shortDescription} />
+                })}
             </ScrollView>
         </>
     )
