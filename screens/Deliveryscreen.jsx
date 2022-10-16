@@ -37,30 +37,30 @@ const Deliveryscreen = () => {
             </SafeAreaView>
 
             <MapView
-            initialRegion={{
-                latitude: 22.622893,
-                longitude: 88.441683,
-                latitudeDelta: 0.005,
-                longitudeDelta: 0.005,
-            }}
-            className="flex-1 -mt-10 z-0"
-            mapType='mutedStandard'
-            >
-                <MapView.Marker
-                coordinate={{
+                initialRegion={{
                     latitude: 22.622893,
                     longitude: 88.441683,
-
+                    latitudeDelta: 0.005,
+                    longitudeDelta: 0.005,
                 }}
-                title={restaurant.title}
-                description={restaurant.shortDescription}
-                identifier="origin"
-                pinColor="#E44141"
+                className="flex-1 -mt-10 z-0"
+                mapType='mutedStandard'
+            >
+                <MapView.Marker
+                    coordinate={{
+                        latitude: 22.622893,
+                        longitude: 88.441683,
+
+                    }}
+                    title={restaurant.title}
+                    description={restaurant.shortDescription}
+                    identifier="origin"
+                    pinColor="#E44141"
                 />
             </MapView>
 
             <SafeAreaView className="bg-white flex-row items-center space-x-5 h-28 pb-8">
-                <Image source={{uri: 'https://links.papareact.com/wru'}} className="h-12 w-12 bg-gray-300 rounded-full ml-5 p-4" />
+                <Image source={{ uri: 'https://links.papareact.com/wru' }} className="h-12 w-12 bg-gray-300 rounded-full ml-5 p-4" />
                 <View className="flex-1">
                     <Text className="text-lg">Jaydeep Dey</Text>
                     <Text className="text-gray-400">Your Rider</Text>
